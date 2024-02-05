@@ -59,14 +59,6 @@ def restart_script():
 
 
 def Delete_event(event_date):
-    #here we can ask for cofirmation are you sure you want to delete the page 
-
-    # try:
-    #     with open("data.json","r") as file:
-    #         data = json.load(file)
-    # except (FileNotFoundError, json.JSONDecodeError):
-    #         print("File not found or empty.")
-    #         return
     #loading the data here 
     data = load_data()
     date_lst = data["dates"]  #it is a list containing a list of all the dates  on which there is a  event 
@@ -115,8 +107,6 @@ def add_notes(event_date):
 
 def store_text_from_box(event_date , input_text):
     '''Function to retrieve and print text from the given Text widget'''
-    # with open("data.json","r") as file:
-    #         data = json.load(file)
     #loading the data here 
     data = load_data()
      
@@ -125,8 +115,6 @@ def store_text_from_box(event_date , input_text):
             json.dump(data, file, indent=4)
 
 def view_event_notes(event_date):
-    # with open("data.json" , "r") as file:
-    #     data = json.load(file)
     data = load_data()
     notes_text  = data["notes"][event_date]
     notes_frame = tk.Frame(master=gui_window)
@@ -222,9 +210,7 @@ if __name__ == "__main__":
     ManageEvents.add_command(label = "ManageEvents",command=Manage_events_btn)
     menubar.add_cascade(label="VIEWEVENTS",menu=ManageEvents)
     gui_window.config(menu=menubar)
-    # ManageEvents.invoke()
-    
-    # Manage_events_btn()
+
     # Set minimum size for navbar_frm and calendar_frm
     navbar_frm.grid(row=0, column=0, padx=5, sticky="nsew")
     calendar_frm.grid(row=0, column=1, sticky="nsew")
